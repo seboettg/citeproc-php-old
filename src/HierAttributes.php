@@ -53,13 +53,13 @@ class HierAttributes
 
     public static function getAllAttributes()
     {
-        if (empty(self::$arr)) {
+        if (empty(HierAttributes::$arr)) {
             $refClass = new \ReflectionClass('\AcademicPuma\CiteProc\HierAttributes');
             $constants = $refClass->getConstants();
             array_walk($constants, function ($value) {
-                self::$arr[$value] = $value;
+                HierAttributes::$arr[$value] = $value;
             });
         }
-        return self::$arr;
+        return HierAttributes::$arr;
     }
 }
