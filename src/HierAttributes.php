@@ -49,7 +49,7 @@ class HierAttributes
     const NAMES_DELIMITER = 'names-delimiter';
     
 
-    private static $arr = array();
+    public static $arr = array();
 
     public static function getAllAttributes()
     {
