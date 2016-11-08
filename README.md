@@ -4,6 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/academicpuma/citeproc-php/v/unstable)](https://packagist.org/packages/academicpuma/citeproc-php) 
 [![License](https://poser.pugx.org/academicpuma/citeproc-php/license)](https://packagist.org/packages/academicpuma/citeproc-php) 
 [![PHP](https://img.shields.io/badge/PHP-%3E=5.3-green.svg?style=flat)](http://docs.php.net/manual/en/migration53.new-features.php)
+[![Build Status](https://travis-ci.org/seboettg/citeproc-php.svg?branch=version1.x)](https://travis-ci.org/seboettg/citeproc-php)
 
 **Description**
 
