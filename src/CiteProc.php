@@ -23,7 +23,8 @@
 namespace AcademicPuma\CiteProc;
 use \DOMDocument;
 
-class CiteProc {
+class CiteProc
+{
 
     /**
      * @var CiteProc
@@ -59,7 +60,7 @@ class CiteProc {
      * @var Locale
      */
     protected $locale;
-    
+
     /**
      * @var Mapper
      */
@@ -71,10 +72,11 @@ class CiteProc {
     public $quash;
 
     /**
-     * 
-     * @return citeproc 
+     *
+     * @return citeproc
      */
-    public static function getInstance($xml) {
+    public static function getInstance($xml)
+    {
 
         if (self::$instance == null) {
 
@@ -91,14 +93,15 @@ class CiteProc {
      * @return string
      * @throws \Exception
      */
-    public static function loadStyleSheet($name) {
-        include_once __DIR__.'/../vendorPath.php';
+    public static function loadStyleSheet($name)
+    {
+        include_once __DIR__ . '/../vendorPath.php';
 
         if (!($vendorPath = vendorPath())) {
             throw new \Exception('Error: vendor path not found. Use composer to initialize your project');
         }
 
-        return file_get_contents($vendorPath.'/academicpuma/styles/'.$name.'.csl');
+        return file_get_contents($vendorPath . '/academicpuma/styles/' . $name . '.csl');
     }
 
     /**
@@ -106,13 +109,15 @@ class CiteProc {
      * @param string $csl xml formatted csl stylesheet
      * @param string $lang
      */
-    function __construct($csl = NULL, $lang = 'en') {
+    function __construct($csl = NULL, $lang = 'en')
+    {
         if ($csl) {
-	        $this->init($csl, $lang);
+            $this->init($csl, $lang);
         }
     }
 
-    private function init($csl, $lang) {
+    private function init($csl, $lang)
+    {
         // define field values appropriate to your data in the csl_mapper class and un-comment the next line.        
         $this->mapper = new Mapper();
         $this->quash = array();
@@ -155,7 +160,8 @@ class CiteProc {
         }
     }
 
-    function render($data, $mode = null) {
+    function render($data, $mode = null)
+    {
         $text = '';
         switch ($mode) {
             case 'citation':
@@ -169,18 +175,35 @@ class CiteProc {
         return $text;
     }
 
+    /**
+     * @return Macros
+     */
     public function getMarcos()
     {
         return $this->macros;
     }
 
+    /**
+     * @return Locale
+     */
     public function getLocale()
     {
         return $this->locale;
     }
 
+    /**
+     * @return Mapper
+     */
     public function getMapper()
     {
         return $this->mapper;
+    }
+
+    /**
+     * @return Info
+     */
+    public function getInfo()
+    {
+        return $this->info;
     }
 }

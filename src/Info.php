@@ -25,14 +25,16 @@ namespace AcademicPuma\CiteProc;
  * @author sebastian
  */
 
-class Info {
+class Info
+{
 
     public $title;
     public $id;
     public $authors = array();
     public $links = array();
 
-    function __construct($dom_node) {
+    function __construct($dom_node)
+    {
         $name = array();
         foreach ($dom_node->childNodes as $node) {
             if ($node->nodeType == 1) {
@@ -56,6 +58,38 @@ class Info {
                 }
             }
         }
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLinks()
+    {
+        return $this->links;
     }
 
 }
